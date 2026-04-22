@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steffen Gabelmann – Personal Trainer Esslingen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F8F6F2;
+    --white: #FFFFFF;
+    --ink: #161412;
+    --ink-light: #6B6560;
+    --gold: #B8965A;
+    --gold-light: #E8DBCA;
+    --rule: #E2DDD8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(248,246,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  nav.scrolled { border-bottom-color: var(--rule); }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--ink);
+    padding: 0.65rem 1.5rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vw 4vw 6vw 5vw;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 5.5vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--ink-light);
+    max-width: 38ch;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+
+  .btn-ghost {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .btn-ghost::after { content: '→'; }
+  .btn-ghost:hover { color: var(--ink); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 0.3rem;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img-wrap {
+    position: absolute;
+    inset: 0;
+    background: var(--gold-light);
+  }
+  .hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+
+  /* Placeholder gradient for hero image */
+  .hero-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #D4C4A8 0%, #B8965A 60%, #8B6914 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem;
+  }
+  .hero-quote {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: white;
+    line-height: 1.4;
+    max-width: 28ch;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  }
+  .hero-tag {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    background: white;
+    padding: 1rem 1.2rem;
+    text-align: center;
+  }
+  .hero-tag-num {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-tag-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 0.2rem;
+  }
+
+  /* ── SECTION TEMPLATE ── */
+  section { padding: 7rem 5vw; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ── SERVICES ── */
+  #leistungen {
+    background: var(--white);
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+  .services-desc {
+    color: var(--ink-light);
+    font-size: 1rem;
+    max-width: 45ch;
+    line-height: 1.8;
+    align-self: end;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+  .service-card {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--rule);
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card:last-child { border-right: none; }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .service-card:hover { background: var(--bg); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+  .service-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    line-height: 1.8;
+  }
+  .service-list {
+    list-style: none;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .service-list li {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .service-list li::before {
+    content: '—';
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    min-height: 680px;
+  }
+  .about-visual {
+    background: linear-gradient(135deg, #C9A96E 0%, #8B6218 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 580px;
+  }
+  .about-visual-inner {
+    width: 80%;
+    aspect-ratio: 3/4;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-visual-label {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 2rem;
+  }
+  .about-circle {
+    position: absolute;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    bottom: -60px; right: -60px;
+  }
+  .about-circle-2 {
+    position: absolute;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    top: 2rem; left: 2rem;
+  }
+
+  .about-content {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vw;
+  }
+  .about-body {
+    font-size: 1rem;
+    color: var(--ink-light);
+    line-height: 1.9;
+    margin: 1.8rem 0 2.5rem;
+    max-width: 50ch;
+  }
+  .credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .credential {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+  .credential-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #referenzen {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .testimonials-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+  .testimonials-header .section-label { color: var(--gold); }
+  .testimonials-header .section-label::before { background: var(--gold); }
+  .testimonials-header .section-title { color: var(--white); }
+  .t-count {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .testimonial {
+    background: rgba(255,255,255,0.04);
+    padding: 2.5rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .testimonial:hover { background: rgba(255,255,255,0.08); }
+  .t-quote {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .t-mark {
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 1.2rem;
+    opacity: 0.5;
+  }
+  .t-author {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .t-result {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.3rem;
+  }
+
+  /* ── PROCESS ── */
+  #ablauf {
+    background: var(--white);
+  }
+  .process-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 1.8rem;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: var(--rule);
+  }
+  .step {
+    padding: 0 1.5rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+  .step-num {
+    width: 3.5rem; height: 3.5rem;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--gold);
+    margin: 0 auto 1.5rem;
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .step:hover .step-num {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: white;
+  }
+  .step-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+  .step-desc {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  #kontakt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  .contact-info {
+    background: var(--bg);
+    padding: 7rem 5vw;
+  }
+  .contact-form-wrap {
+    background: var(--white);
+    padding: 7rem 5vw;
+    border-left: 1px solid var(--rule);
+  }
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 3rem;
+  }
+  .contact-row {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+  .contact-row:first-child { border-top: 1px solid var(--rule); }
+  .contact-key {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    min-width: 6rem;
+    padding-top: 0.15rem;
+  }
+  .contact-val {
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  .form-label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.6rem;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    padding: 0.9rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-textarea { resize: vertical; min-height: 130px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--ink);
+    color: white;
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background 0.25s;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .submit-btn:hover { background: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.45);
+    padding: 2.5rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .footer-links { display: flex; gap: 2rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  .hero-headline { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-stats { animation: fadeUp 0.7s 0.45s ease both; }
+  .hero-right .hero-img-wrap { animation: fadeUp 0.9s 0.15s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 50vw; min-height: 280px; }
+    .hero-left { padding: 4rem 6vw 3rem; }
+    .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    #about { grid-template-columns: 1fr; }
+    .about-visual { min-height: 320px; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 2px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    #kontakt { grid-template-columns: 1fr; }
+    .contact-form-wrap { border-left: none; border-top: 1px solid var(--rule); }
+    .nav-links { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .process-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    .testimonials-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">SG<span>.</span> Personal Coach</a>
+  <ul class="nav-links">
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#about">Über mich</a></li>
+    <li><a href="#referenzen">Referenzen</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a href="#kontakt" class="nav-cta">Jetzt anfragen</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Personal Trainer · Ernährungsberatung · Esslingen</p>
+    <h1 class="hero-headline">
+      Dein Körper.<br>
+      Deine <em>Stärke.</em><br>
+      Dein Weg.
+    </h1>
+    <p class="hero-sub">
+      Ich begleite dich mit individuellem Training, fundierter Ernährungsberatung 
+      und persönlicher Betreuung – nachhaltig, umsetzbar und ganz auf dich abgestimmt.
+    </p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">Kostenlose Analyse sichern</a>
+      <a href="#leistungen" class="btn-ghost">Leistungen entdecken</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">9+</div>
+        <div class="stat-label">Jahre Erfahrung</div>
+      </div>
+      <div>
+        <div class="stat-num">20m²</div>
+        <div class="stat-label">Exklusiv für dich</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Individuelle Betreuung</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-placeholder">
+        <p class="hero-quote">„Stärke entsteht nicht im Gym – sondern in der Entscheidung, heute anzufangen."</p>
+      </div>
+    </div>
+    <div class="hero-tag">
+      <div class="hero-tag-num">★ 5.0</div>
+      <div class="hero-tag-text">Kundenbewertung</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="services-header">
+    <div>
+      <p class="section-label">Was ich anbiete</p>
+      <h2 class="section-title">Ganzheitliches Coaching<br>für <em>echte Ergebnisse</em></h2>
+    </div>
+    <p class="services-desc">
+      Kein Schema F. Jedes Programm entsteht neu – auf Basis deiner Ziele, 
+      deines Alltags und deines Körpers. Drei Säulen, ein Ziel: 
+      nachhaltige Veränderung.
+    </p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3 class="service-title">Personal Training</h3>
+      <p class="service-desc">Intensives 1:1-Training auf 20 m² Trainingsfläche, die exklusiv für dich reserviert ist. Mit professionellem Equipment und voller Aufmerksamkeit.</p>
+      <ul class="service-list">
+        <li>Olympische Langhantel & Kurzhantel</li>
+        <li>Kettlebell & Kabelzug</li>
+        <li>Kraft, Ausdauer & Beweglichkeit</li>
+        <li>Flexible Termingestaltung</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3 class="service-title">Ernährungsberatung</h3>
+      <p class="service-desc">Ernährung, die schmeckt, sättigt und wirkt. Ich entwickle mit dir einen Plan, der in deinen Alltag passt – ohne Verbote, ohne Hunger.</p>
+      <ul class="service-list">
+        <li>Individuelle Ernährungsanalyse</li>
+        <li>Alltagstaugliche Pläne</li>
+        <li>Supplement-Beratung</li>
+        <li>Langfristige Strategien</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3 class="service-title">Online-Coaching</h3>
+      <p class="service-desc">Ortsunabhängige Betreuung für ganz Deutschland. Du bekommst denselben persönlichen Service – flexibel, digital und immer erreichbar.</p>
+      <ul class="service-list">
+        <li>Individueller Trainingsplan</li>
+        <li>Wöchentliches Check-in</li>
+        <li>Direkter Messenger-Support</li>
+        <li>Video-Coaching-Calls</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-visual-inner">
+      <p class="about-visual-label">Steffen Gabelmann<br>Personal Trainer</p>
+    </div>
+    <div class="about-circle"></div>
+    <div class="about-circle-2"></div>
+  </div>
+  <div class="about-content">
+    <p class="section-label">Über mich</p>
+    <h2 class="section-title">Seit 2016<br>für <em>deinen Erfolg</em></h2>
+    <p class="about-body">
+      Sport und Bewegung waren von Anfang an mehr als ein Hobby – sie waren meine 
+      Leidenschaft. Nach meinem Sportstudium begleite ich Menschen dabei, fitter, 
+      gesünder und leistungsfähiger zu werden. Ohne Umwege. Dafür individuell und 
+      mit echter persönlicher Betreuung.
+    </p>
+    <div class="credentials">
+      <div class="credential"><span class="credential-dot"></span>Sportstudium – Schwerpunkt Kraft & Kondition</div>
+      <div class="credential"><span class="credential-dot"></span>Zertifizierter Ernährungsberater</div>
+      <div class="credential"><span class="credential-dot"></span>Über 9 Jahre aktive Trainingspraxis</div>
+      <div class="credential"><span class="credential-dot"></span>Spezialisiert auf nachhaltige Körperveränderung</div>
+    </div>
+    <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="referenzen">
+  <div class="testimonials-header">
+    <div>
+      <p class="section-label">Was Kunden sagen</p>
+      <h2 class="section-title">Echte Menschen.<br><em>Echte Ergebnisse.</em></h2>
+    </div>
+    <span class="t-count">Ausgewählte Referenzen</span>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <span class="t-mark">"</span>
+      <p class="t-quote">Wir kommen nun seit über einem halben Jahr zweimal die Woche zu Steffen. Das Training ist sehr abwechslungsreich und macht riesig Spaß. Auch menschlich verstehen wir uns super.</p>
+      <p class="t-author">Thomas & Petra K.</p>
+      <span class="t-result">6 Monate Personal Training</span>
+    </div>
+    <div class="testimonial">
+      <span class="t-mark">"</span>
+      <p class="t-quote">Ein klasse Coach, der immer für einen da ist. Mit einem guten Programm hat er mir super geholfen, Pfunde runterzukriegen. Kann ich persönlich nur empfehlen.</p>
+      <p class="t-author">Dennis H.</p>
+      <span class="t-result">15 kg in 4 Monaten verloren</span>
+    </div>
+    <div class="testimonial">
+      <span class="t-mark">"</span>
+      <p class="t-quote">Endlich jemand, der mir nicht nur einen Plan gibt, sondern wirklich erklärt, warum jede Übung und jede Mahlzeit sinnvoll ist. Das hat alles verändert.</p>
+      <p class="t-author">Julia M.</p>
+      <span class="t-result">Online-Coaching, München</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section id="ablauf">
+  <div class="process-header">
+    <div>
+      <p class="section-label">So funktioniert's</p>
+      <h2 class="section-title">In 4 Schritten<br>zu <em>deinem Ziel</em></h2>
+    </div>
+    <p class="services-desc">
+      Einfach, transparent, ohne Risiko. Beim kostenlosen Erstgespräch 
+      lernst du mich kennen – unverbindlich und ohne versteckte Kosten.
+    </p>
+  </div>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4 class="step-title">Erstgespräch</h4>
+      <p class="step-desc">Kostenlos & unverbindlich. Wir sprechen über deine Ziele und Ausgangslage.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4 class="step-title">Analyse</h4>
+      <p class="step-desc">Ich erstelle eine individuelle Eingangsanalyse – körperlich und ernährungstechnisch.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4 class="step-title">Dein Plan</h4>
+      <p class="step-desc">Du bekommst ein maßgeschneidertes Training- und Ernährungsprogramm.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4 class="step-title">Start & Erfolg</h4>
+      <p class="step-desc">Wir starten gemeinsam – mit regelmäßigem Feedback und Anpassungen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="contact-info">
+    <p class="section-label">Kontakt</p>
+    <h2 class="section-title">Bereit für<br>deine <em>Veränderung?</em></h2>
+    <p style="margin-top:1.5rem; color:var(--ink-light); font-size:0.95rem; line-height:1.8; max-width:42ch;">
+      Füll das Formular aus und ich melde mich innerhalb von 24 Stunden. 
+      Das Erstgespräch ist kostenlos und unverbindlich.
+    </p>
+    <div class="contact-detail">
+      <div class="contact-row">
+        <span class="contact-key">Adresse</span>
+        <span class="contact-val">Mühlhaldenweg 22<br>73207 Plochingen</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Telefon</span>
+        <span class="contact-val">0152 24 43 50 61</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Zeiten</span>
+        <span class="contact-val">Mo – Sa, 09:00 – 21:00 Uhr</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-key">Online</span>
+        <span class="contact-val">Coaching für ganz Deutschland</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form-wrap">
+    <p class="section-label">Anfrage senden</p>
+    <h3 style="font-family:var(--serif);font-size:1.8rem;font-weight:300;margin-bottom:2rem;">Kostenlose Trainingsanalyse</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Vorname</label>
+        <input type="text" class="form-input" placeholder="Max">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nachname</label>
+        <input type="text" class="form-input" placeholder="Mustermann">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">E-Mail</label>
+      <input type="email" class="form-input" placeholder="max@beispiel.de">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Mein Ziel</label>
+      <select class="form-input">
+        <option value="">Bitte auswählen...</option>
+        <option>Abnehmen & Körperfett reduzieren</option>
+        <option>Muskeln aufbauen & Kraft steigern</option>
+        <option>Fitter & gesünder werden</option>
+        <option>Ernährung optimieren</option>
+        <option>Online-Coaching</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Nachricht (optional)</label>
+      <textarea class="form-textarea" placeholder="Erzähl mir kurz von deiner Situation..."></textarea>
+    </div>
+    <button class="submit-btn">Jetzt kostenfrei anfragen →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SG Personal Coach</div>
+  <div class="footer-links">
+    <a href="#">Impressum</a>
+    <a href="#">Datenschutz</a>
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+  </div>
+  <span>© 2025 Steffen Gabelmann</span>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .testimonial, .step, .credential').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
